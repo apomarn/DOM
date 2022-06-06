@@ -23,7 +23,28 @@ horoscoposBody.style.alignContent="center";
 
 for (const horoscopo of horoscopos) {
     let container = document.createElement("div");
-    container.style.background="black";
+    container.setAttribute('id', horoscopo.name)
+
+    container.addEventListener ('dblclick', () => {
+        console.log(horoscopo.name)
+
+        horoscoposBody.removeChild(container);
+
+    })  
+
+    container.addEventListener ('mouseover', (e) => {
+        container.style.background ="gray";
+    
+    } )
+    container.addEventListener ('mouseout', (e) => {
+        container.style.background ="black";
+    
+    } )
+        
+    
+
+    container.style.background ="black";
+
     container.style.width="200px";
     container.style.height="150px";
     container.style.padding="10px 10px";
@@ -37,6 +58,7 @@ for (const horoscopo of horoscopos) {
   
 
     container.innerHTML=`
+    
     <h4 class="name" >${horoscopo.name}</h4>
     <p class="fecha" >${horoscopo.fechas}</p>
     `
@@ -44,9 +66,15 @@ for (const horoscopo of horoscopos) {
 
    
 
+  
+
 }
 
 
+// horoscoposBody.addEventListener('dblclick', (event) => {
+//     console.log(event);
+//     console.log(horoscoposBody.removeChild(container))
+// })
 
 
 
